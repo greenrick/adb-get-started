@@ -1,4 +1,4 @@
-create or replace procedure add_spatial as 
+create or replace procedure add_spatial_pizza as 
 begin
  
         -- function
@@ -29,25 +29,6 @@ begin
                END;
         ' );
 
-        begin
-            -- SPATIAL METADATA UPDATES
-            workshop.write('- add spatial metadata');
-
-            insert into user_sdo_geom_metadata values (
-             'CUSTOMER_CONTACT',
-             user||'.LATLON_TO_GEOMETRY(loc_lat,loc_long)',
-              sdo_dim_array(
-                  sdo_dim_element('X', -180, 180, 0.05), --longitude bounds and tolerance in meters
-                  sdo_dim_element('Y', -90, 90, 0.05)),  --latitude bounds and tolerance in meters
-              4326 --identifier for lat/lon coordinate system
-                );
-             commit;
-        exception
-            when others then
-                workshop.write(' - unable to update spatial metadata for customer_contact');             
-                workshop.write(' - .... ' || sqlerrm);                 
-        end;
-
         begin        
             insert into user_sdo_geom_metadata values (
              'PIZZA_LOCATION',
@@ -65,16 +46,6 @@ begin
                 workshop.write(' - .... ' || sqlerrm);                 
         end;
 
-        -- Add spatial indexes
-        begin
-            workshop.write('- create spatial indexes');
-            workshop.exec ( 'CREATE INDEX customer_sidx ON customer_contact (latlon_to_geometry(loc_lat,loc_long)) INDEXTYPE IS mdsys.spatial_index_v2 PARAMETERS (''layer_gtype=POINT'')' );            
-        exception
-            when others then
-                workshop.write(' - .... unable to create spatial index on customer_contact');             
-                workshop.write(' - .... ' || sqlerrm);                 
-        end;    
-
         begin
             workshop.write('- create spatial indexes');
             workshop.exec ( 'CREATE INDEX pizza_location_sidx ON pizza_location (latlon_to_geometry(lat,lon)) INDEXTYPE IS mdsys.spatial_index_v2 PARAMETERS (''layer_gtype=POINT'')' );     
@@ -83,7 +54,5 @@ begin
                 workshop.write(' - .... unable to create spatial index on pizza_location');             
                 workshop.write(' - .... ' || sqlerrm);                 
         end;    
-
-
  
-end add_spatial;
+end add_spatial_pizza;
