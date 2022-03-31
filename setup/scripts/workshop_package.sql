@@ -16,7 +16,7 @@ create or replace package workshop as
     procedure exec (sql_ddl in varchar2, raise_exception in boolean := false);
 
 end workshop;
-/
+
 
 create or replace package body workshop as
 
@@ -266,4 +266,3 @@ create or replace package body workshop as
   end add_dataset;
 
 end workshop;
-/
