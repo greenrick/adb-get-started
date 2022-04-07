@@ -20,7 +20,7 @@ begin
             format => l_format,
             column_list => 'doc varchar2(30000)'
             );       
-end
+end;
 /
 
 -- Table used for logging operations
@@ -63,5 +63,5 @@ begin
         repo        => l_git,
         file_path   => l_package_file);
 
-end
+end;
 /
