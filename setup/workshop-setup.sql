@@ -27,11 +27,12 @@ end;
 create table workshop_log 
    (	execution_time timestamp (6), 
 	    message varchar2(32000 byte)
-   ) ;
+   ) 
+/
 
 -- Data set listing based on config file on github
 
-create or replace view datasets as
+create or replace view workshop_datasets as
     select 
         a.doc.table_name as table_name,
         to_number(a.doc.seq) as seq,
@@ -42,7 +43,8 @@ create or replace view datasets as
         a.doc.constraints as constraints,
         a.doc.description as description,
         a.doc.dependencies as dependencies
-    from ext_datasets a;
+    from ext_datasets a
+/    
     
 -- Install the workshop base package
 declare

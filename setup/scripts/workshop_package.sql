@@ -63,7 +63,7 @@ create or replace package body workshop as
     specify ALL to add all data sets.
   **/  
   procedure add_dataset(table_names varchar2, debug_on boolean) as
-    type t_datasets is table of datasets%rowtype;
+    type t_datasets is table of workshop_datasets%rowtype;
     l_datasets t_datasets;
     l_table_names varchar2(4000);
     c_table_names sys.odcivarchar2list := sys.odcivarchar2list();
@@ -93,7 +93,7 @@ create or replace package body workshop as
     if l_table_names  = 'ALL' then
         select *
         bulk collect into l_datasets
-        from datasets
+        from workshop_datasets
         order by seq;     
     else
         -- convert comma separated list of tables
@@ -105,7 +105,7 @@ create or replace package body workshop as
         input_tables as (
             -- comma separated table list
             select *        
-            from   datasets
+            from   workshop_datasets
             where  table_name in ( 
               select regexp_substr (
                        str,
@@ -131,7 +131,7 @@ create or replace package body workshop as
         -- combine the input and dependencies
         select *
         bulk collect into l_datasets
-        from datasets
+        from workshop_datasets
         where table_name in (select dependencies from dependent_tables)
            or table_name in (select table_name from input_tables)
         order by seq   
