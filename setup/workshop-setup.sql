@@ -45,7 +45,6 @@ create or replace view workshop_datasets as
         a.doc.dependencies as dependencies
     from ext_datasets a 
 /
-
     
 -- Install the workshop base package
 declare
@@ -64,5 +63,11 @@ begin
         repo        => l_git,
         file_path   => l_package_file);
 
+end;
+/
+
+-- Install all the prerequisite packages packages
+begin
+    workshop.install_prerequisites;
 end;
 /
