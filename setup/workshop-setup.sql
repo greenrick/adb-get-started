@@ -67,12 +67,12 @@ begin
 end;
 /
 
-/*
+
 grant select on ext_datasets to public /
 grant select on workshop_datasets to public /
 grant all on workshop_log to public /
 grant execute on workshop to public /
-
+/*
 create public synonym workshop for workshop /
 create public synonym workshop_datasets for workshop_datasets /
 create public synonym workshop_log for workshop_log  /
