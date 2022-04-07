@@ -119,7 +119,7 @@ create or replace package body workshop as
                 length ( replace ( str, ',' ) ) + 1
                 )
         ),
-        dependent_tables as (
+        dependent_tables as ( 
             -- additional tables that the input tables require
             select      
                 jt.dependencies 
