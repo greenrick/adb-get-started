@@ -44,3 +44,23 @@ create or replace view workshop_datasets as
         a.doc.dependencies as dependencies
     from ext_datasets a 
 /
+
+-- Install the workshop base package
+declare
+    l_git varchar2(4000);
+    l_repo_name varchar2(100) := 'adb-get-started';
+    l_owner varchar2(100) := 'martygubar';
+    l_package_file varchar2(200) := 'setup/scripts/workshop_package.sql';
+begin
+    -- get a handle to github
+    l_git := dbms_cloud_repo.init_github_repo(
+                 repo_name       => l_repo_name,
+                 owner           => l_owner );
+
+    -- install the package header
+    dbms_cloud_repo.install_file(
+        repo        => l_git,
+        file_path   => l_package_file);
+
+end;
+/
