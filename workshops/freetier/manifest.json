@@ -17,19 +17,28 @@
           "filename": "../../setup/setup.md"
         },
         {
-          "title": "Add workshop utilities",
+          "title": "Add workshop utilities from github",
           "filename": "../../setup/add-workshop-utilities.md"
-        },                
+        },   
+        {
+          "title": "Using OCI Cloud Shell",
+          "filename": "../../setup/add-workshop-utilities.md"
+        },                       
         {
           "title": "{ PROVISION AND LOAD }",
           "type": "freetier",
           "filename": "../../provision-database/adb-provision-moviestream.md"
         },        
         {
-          "title": "Lab 1: Provision an ADB instance",
+          "title": "Lab 1: Provision an ADB instance using the OCI Service Console",
           "type": "freetier",
           "filename": "../../provision-database/adb-provision-moviestream.md"
         },
+        {
+          "title": "Lab 2: Provision an ADB instance using the Python API",
+          "type": "freetier",
+          "filename": "../../provision-database/adb-provision-moviestream.md"
+        },        
         {
           "title": "Lab 2: Create a user",
           "type": "freetier",

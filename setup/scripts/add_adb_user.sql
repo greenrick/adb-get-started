@@ -46,15 +46,15 @@ create or replace procedure add_adb_user(user_name varchar2, pwd varchar2) as
 
         workshop.write('{ TO DO }');
         workshop.write('Run the following as "ADMIN" in SQL Worksheet to allow your new user to use the SQL Tools');
-        workshop.write(q'# begin )
+        workshop.write('begin 
                 ords_admin.enable_schema (
                     p_enabled               => TRUE,
-                    p_schema                => NEW_USER_NAME,
-                    p_url_mapping_type      => 'BASE_PATH',
+                    p_schema                => ''' || user_name || ''',
+                    p_url_mapping_type      => ''BASE_PATH'',
                     p_auto_rest_auth        => TRUE   
                 );
                 end;
-                / #');
+                /');
 
         EXCEPTION when others then
             workshop.write('Unable to create the user.');

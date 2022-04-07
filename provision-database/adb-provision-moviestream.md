@@ -1,4 +1,4 @@
-# Provision and Load an Autonomous Database
+# Provision an Autonomous Database using the OCI Service Console
 
 ## Introduction
 
