@@ -1,5 +1,12 @@
-create or replace package workshop as 
-
+create or replace package workshop as
+    
+    /* Specify constants for the utility */
+    repo varchar2(100)       := 'adb-get-started';
+    repo_owner varchar2(100) := 'martygubar';
+    
+    procedure install_prerequisites;
+    
+    
     /*
     procedure add_dataset
         table_names:  comma separated list of tables.  
@@ -119,7 +126,7 @@ create or replace package body workshop as
                 length ( replace ( str, ',' ) ) + 1
                 )
         ),
-        dependent_tables as ( 
+        dependent_tables as (
             -- additional tables that the input tables require
             select      
                 jt.dependencies 
@@ -264,6 +271,55 @@ create or replace package body workshop as
           || ':' 
           || to_char(extract(second from numtodsinterval(sysdate-start_time, 'DAY')), 'FM00'));
   end add_dataset;
+  
+  
+  /* install the prerequisite procedures */
+  procedure install_prerequisites as
+    l_git clob;
+    l_num_scripts number;
+  begin
+    
+    -- The setup/scripts folder contains all of the prerequisite scripts required by
+    -- the labs.  Install those scripts
+    write('{ Adding prerequisite scripts }');
+    write('repo  = ' || repo);
+    write('owner = ' || repo_owner);
+    
+    l_git := dbms_cloud_repo.init_github_repo(
+                repo_name       => repo,
+                owner           => repo_owner );
+    
+    select count(*)
+    into l_num_scripts
+    from table(
+        dbms_cloud_repo.list_files (
+                repo   => l_git,
+                path   => 'setup/scripts/'
+            ) -- list_files
+          ); -- table
+          
+    write(l_num_scripts || ' scripts will be installed');
+
+    for rec in (  
+        select name
+        from table(
+            dbms_cloud_repo.list_files (
+                    repo   => l_git,
+                    path   => 'setup/scripts/'
+                ) -- list_files
+              ) -- table
+    ) 
+   loop 
+      write('installing > ' || rec.name);
+      dbms_cloud_repo.install_file(
+        repo        => l_git,
+        file_path   => rec.name);
+   end loop; 
+   
+   write('{ Done installing scripts }');
+    
+  end install_prerequisites;
+    
 
 end workshop;
 /
