@@ -123,7 +123,7 @@ create or replace package body workshop as
             -- additional tables that the input tables require
             select      
                 jt.dependencies 
-            from datasets d, 
+            from workshop_datasets d, 
                  json_table(upper(dependencies), '$[*]' columns (dependencies path '$')) jt,
                  input_tables i
             where d.table_name = i.table_name
