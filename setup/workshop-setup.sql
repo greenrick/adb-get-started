@@ -64,14 +64,25 @@ begin
         file_path   => l_package_file,
         stop_on_error => true);
 
+    -- enable access to the objects
+    execute immedate 'create or replace public synonym workshop for workshop';
+    execute immedate 'create public synonym workshop_datasets for workshop_datasets' ;
+    execute immedate 'create public synonym workshop_log for workshop_log' ;  
+
+    execute immedate 'grant select on ext_datasets to public' ;
+    execute immedate 'grant select on workshop_datasets to public' ;
+    execute immedate 'grant all on workshop_log to public' ;
+    execute immedate 'grant execute on workshop to public' ;
+
+
 end;
 /
 
-create or replace public synonym workshop for workshop /
+/*
+create or replace public synonym workshop for workshop / 
 create or replace  public synonym workshop_datasets for workshop_datasets /
 create or replace  public synonym workshop_log for workshop_log  /
 
-/*
 grant select on ext_datasets to public /
 grant select on workshop_datasets to public /
 grant all on workshop_log to public /
