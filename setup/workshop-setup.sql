@@ -45,6 +45,17 @@ create or replace view workshop_datasets as
         a.doc.dependencies as dependencies
     from ext_datasets a 
 /
+
+begin
+    -- enable access to the objects
+    execute immediate 'grant select on ext_datasets to public' ;
+    execute immediate 'grant select on workshop_datasets to public' ;
+    execute immediate 'grant all on workshop_log to public' ;
+
+    execute immediate 'create or replace public synonym workshop_datasets for workshop_datasets' ;
+    execute immediate 'create or replace public synonym workshop_log for workshop_log' ;  
+end;
+/
     
 -- Install the workshop base package
 declare
@@ -65,29 +76,11 @@ begin
         stop_on_error => true);
 
     -- enable access to the objects
-    execute immediate 'create or replace public synonym workshop for workshop';
-    execute immediate 'create public synonym workshop_datasets for workshop_datasets' ;
-    execute immediate 'create public synonym workshop_log for workshop_log' ;  
-
-    execute immediate 'grant select on ext_datasets to public' ;
-    execute immediate 'grant select on workshop_datasets to public' ;
-    execute immediate 'grant all on workshop_log to public' ;
     execute immediate 'grant execute on workshop to public' ;
-
+    execute immediate 'create or replace public synonym workshop for workshop';
 
 end;
 /
-
-/*
-create or replace public synonym workshop for workshop / 
-create or replace  public synonym workshop_datasets for workshop_datasets /
-create or replace  public synonym workshop_log for workshop_log  /
-
-grant select on ext_datasets to public /
-grant select on workshop_datasets to public /
-grant all on workshop_log to public /
-grant execute on workshop to public /
-*/
 
 -- Install all the prerequisite packages packages
 begin
