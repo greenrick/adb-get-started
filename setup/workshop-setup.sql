@@ -65,14 +65,14 @@ begin
         stop_on_error => true);
 
     -- enable access to the objects
-    execute immedate 'create or replace public synonym workshop for workshop';
-    execute immedate 'create public synonym workshop_datasets for workshop_datasets' ;
-    execute immedate 'create public synonym workshop_log for workshop_log' ;  
+    execute immediate 'create or replace public synonym workshop for workshop';
+    execute immediate 'create public synonym workshop_datasets for workshop_datasets' ;
+    execute immediate 'create public synonym workshop_log for workshop_log' ;  
 
-    execute immedate 'grant select on ext_datasets to public' ;
-    execute immedate 'grant select on workshop_datasets to public' ;
-    execute immedate 'grant all on workshop_log to public' ;
-    execute immedate 'grant execute on workshop to public' ;
+    execute immediate 'grant select on ext_datasets to public' ;
+    execute immediate 'grant select on workshop_datasets to public' ;
+    execute immediate 'grant all on workshop_log to public' ;
+    execute immediate 'grant execute on workshop to public' ;
 
 
 end;
