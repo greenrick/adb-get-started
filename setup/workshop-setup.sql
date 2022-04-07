@@ -79,6 +79,9 @@ begin
     execute immediate 'grant execute on workshop to public' ;
     execute immediate 'create or replace public synonym workshop for workshop';
 
+    execute immediate 'alter package workshop compile package';
+    execute immediate 'alter package workshop compile bodY';
+
 end;
 /
 
