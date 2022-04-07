@@ -43,7 +43,7 @@ create or replace view workshop_datasets as
         a.doc.constraints as constraints,
         a.doc.description as description,
         a.doc.dependencies as dependencies
-    from ext_datasets a
+    from ext_datasets a;
 /    
     
 -- Install the workshop base package
