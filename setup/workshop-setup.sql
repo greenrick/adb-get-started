@@ -62,7 +62,7 @@ begin
     dbms_cloud_repo.install_file(
         repo        => l_git,
         file_path   => l_package_file,
-        stop_on_error => false);
+        stop_on_error => true);
 
 end;
 /
