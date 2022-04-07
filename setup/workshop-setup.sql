@@ -44,7 +44,7 @@ create or replace view workshop_datasets as
         a.doc.description as description,
         a.doc.dependencies as dependencies
     from ext_datasets a;
-/    
+
     
 -- Install the workshop base package
 declare
