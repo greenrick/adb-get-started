@@ -91,7 +91,7 @@ create or replace package body workshop as
         6. run any post-processor
     **/
     write('**');
-    write('{ begin }');
+    write('{ begin adding data sets }');
     write('debug=' || case when debug_on then 'true' else 'false' end);
     
     -- upper case, no spaces
