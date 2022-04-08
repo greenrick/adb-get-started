@@ -17,8 +17,16 @@ as
     */
     procedure add_dataset(table_names varchar2, debug_on boolean default false);
     
-    /* write message to the log */
-    procedure write (message in varchar2 default '');
+    /* write message to the log 
+       use style to format output
+       -1 = error       #! Error !# message 
+        1 = header(h1)  { message }
+        2 = header (h2) -> message
+        3 = header (h3) ---> message
+        4 = list item       - 
+        null = plain     message
+    */
+    procedure write (message in varchar2 default null, style number default null);
     
     /* Execute a procedure or ddl */
     procedure exec (sql_ddl in varchar2, raise_exception in boolean := false);
@@ -28,19 +36,49 @@ end workshop;
 
 create or replace package body workshop as
 
-    /* Writes to workshop_log */
+    /* write message to the log 
+       use style to format output
+       -1 = error       #! Error !# message 
+        1 = header(h1)  { message }
+        2 = header (h2) -> message
+        3 = header (h3) --> message
+        4 = list item       -
+        null = plan     message
+    */
     procedure write 
     (
-      message in varchar2 default ''
+      message in varchar2 default null,
+      style   in number default null
+      
     ) as 
-    begin
-        dbms_output.put_line(to_char(systimestamp, 'DD-MON-YY HH:MI:SS') || ' - ' || message); 
+        l_message varchar2(32000);
         
-        if message is not null then
-            execute immediate 'insert into workshop_log values(:t1, :msg)' 
-                    using systimestamp, message;
-            commit;
+    begin
+        
+        if message is null then
+            return;
         end if;
+        
+        dbms_output.put_line(to_char(systimestamp, 'DD-MON-YY HH:MI:SS') || ' - ' || message); 
+   
+        -- Add style to the message
+        l_message := case style
+                        when null then
+                            message
+                        when -1 then
+                            '#! Error !#' || message
+                        when 1 then 
+                            '{ ' || message || ' }'
+                        when 4 then 
+                            '    - ' || message
+                        else
+                           substr('------------------------->', (style * -2)) || ' ' || message                                                     
+                      end;
+        
+        execute immediate 'insert into workshop_log(execution_time, session_id, username, message) values(:t1, :sid, :u, :msg)' 
+                using systimestamp, sys_context('USERENV', 'SID'), sys_context('USERENV', 'SESSION_USER'),  l_message;
+        commit;
+        
     
     end write;
     
@@ -61,7 +99,7 @@ create or replace package body workshop as
             if raise_exception then
                 raise;
             else    
-                write(sqlerrm);
+                write(sqlerrm, -1);
             end if;
         
     end exec;
@@ -91,7 +129,7 @@ create or replace package body workshop as
         6. run any post-processor
     **/
     write('**');
-    write('{ begin adding data sets }');
+    write('begin adding data sets', 1);
     write('debug=' || case when debug_on then 'true' else 'false' end);
     
     -- upper case, no spaces
@@ -147,20 +185,20 @@ create or replace package body workshop as
         
     end if;
 
-    write('{ Input tables }');
-    write('These tables were requested');
-    write(l_table_names);
-    write('{ These tables will be added. The list includes dependent tables that were added automatically }');
+    write('Input tables', 1);
+    write('These tables were requested', 2);
+    write(l_table_names, 4);
+    write('These tables will be added. The list includes dependent tables that were added automatically', 2);
     
     for i in 1 .. l_datasets.count
     loop
-        write('...' || l_datasets(i).table_name);
+        write(l_datasets(i).table_name, 4);
     end loop;
     
     /**
         Drop tables that will be recreated   
     **/    
-    write('{ Will recreate tables that already exist }');
+    write('Will recreate tables that already exist', 1);
     
     for i in 1 .. l_datasets.count
     loop
@@ -173,12 +211,12 @@ create or replace package body workshop as
             exec( 'drop table ' || l_datasets(i).table_name || ' cascade constraints');
         end if;            
     end loop;
-    write('{ Done dropping tables }');
+    write('Done dropping tables', 1);
 
     /**
         Create the tables
     **/        
-    write('{ Creating tables }');
+    write('Creating tables', 1);
     
     for i in 1 .. l_datasets.count
     loop 
@@ -190,17 +228,17 @@ create or replace package body workshop as
         
         exec (l_datasets(i)."SQL");            
     end loop;
-    write('{ Done creating tables }');
+    write('Done creating tables', 1);
     
     /**
         Load the tables
     **/        
-    write('{ Loading tables }');
+    write('Loading tables', 1);
     
     for i in 1 .. l_datasets.count
     loop
         -- load tables that have an object store source
-        write ('Loading ' || l_datasets(i).table_name); 
+        write ('Loading ' || l_datasets(i).table_name, 2); 
         
         if l_datasets(i).source_uri is null then
             -- this is for sources that are derived from other sources (e.g. CTAS)
@@ -219,28 +257,28 @@ create or replace package body workshop as
                 from user_load_operations
                 where id = l_opid;
                      
-                write ('> status : ' || l_load_op_rec.status);
-                write ('> # rows : ' || l_load_op_rec.rows_loaded);
+                write ('status : ' || l_load_op_rec.status, 2);
+                write ('# rows : ' || l_load_op_rec.rows_loaded, 2);
                 
                 if not debug_on then
-                    write('dropping logging tables (enable debugging to preserve logs)');
+                    write('dropping logging tables (enable debugging to preserve logs)', 2);
                     exec('drop table ' || l_load_op_rec.logfile_table);
                     exec('drop table ' || l_load_op_rec.badfile_table);
                 end if;
                 
-                write ('Done loading ' || l_datasets(i).table_name);
+                write ('Done loading ' || l_datasets(i).table_name, 2);
             exception
                 when others then
                     write(sqlerrm);
             end;
         end if; -- loading data
     end loop;
-    write('{ Done loading tables }');
+    write('Done loading tables', 1);
     
     /**
         Add constraints
     **/        
-    write('{ Adding constraints }');
+    write('Adding constraints', 1);
     
     for i in 1 .. l_datasets.count
     loop 
@@ -248,12 +286,12 @@ create or replace package body workshop as
             exec (l_datasets(i).constraints);            
         end if;
     end loop;
-    write('{ Done adding constraints }'); 
+    write('Done adding constraints', 1); 
     
     /**
         Run post-load procedures (e.g. spatial metadata updates
     **/        
-    write('{ Run post-load procedures }');
+    write('Run post-load procedures', 1);
     
     for i in 1 .. l_datasets.count
     loop 
@@ -261,7 +299,7 @@ create or replace package body workshop as
             exec ('begin admin.' || l_datasets(i).post_load_proc || '; end;');            
         end if;
     end loop;
-    write('{ Done post-load procedures }'); 
+    write('Done post-load procedures', 1); 
     
     /**
         Done.
@@ -282,7 +320,7 @@ create or replace package body workshop as
     
     -- The setup/scripts folder contains all of the prerequisite scripts required by
     -- the labs.  Install those scripts
-    write('{ Adding prerequisite scripts }');
+    write('Adding prerequisite scripts', 1);
     write('repo  = ' || repo);
     write('owner = ' || repo_owner);
     
@@ -311,13 +349,13 @@ create or replace package body workshop as
               ) -- table
     ) 
    loop 
-      write('installing > ' || rec.name);
+      write('installing' || rec.name, 2);
       dbms_cloud_repo.install_file(
         repo        => l_git,
         file_path   => rec.name);
    end loop; 
    
-   write('{ Done installing scripts }');
+   write('Done installing scripts', 1);
     
   end install_prerequisites;
     

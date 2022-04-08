@@ -26,8 +26,10 @@ end;
 -- Table used for logging operations
 create table workshop_log 
    (	execution_time timestamp (6), 
-	    message varchar2(32000 byte)
-   ) 
+	    message varchar2(32000 byte),
+        session_id number,
+        username   varchar2(30)
+   ) ;
 /
 
 -- Data set listing based on config file on github
