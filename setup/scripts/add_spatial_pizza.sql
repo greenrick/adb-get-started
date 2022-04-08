@@ -1,4 +1,4 @@
-create or replace procedure add_spatial_pizza as 
+create or replace procedure add_spatial_pizza authid current_user as 
 begin
  
         -- function

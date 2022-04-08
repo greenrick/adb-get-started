@@ -1,4 +1,5 @@
-create or replace procedure add_adb_user(user_name varchar2, pwd varchar2) as
+create or replace procedure add_adb_user(user_name varchar2, pwd varchar2) authid current_user
+as
     l_count number;
     
     begin

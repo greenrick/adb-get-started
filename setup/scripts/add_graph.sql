@@ -1,4 +1,4 @@
-create or replace procedure add_graph as
+create or replace procedure add_graph authid current_user as
     user_name varchar2(100) := user;
 begin
     -- Drop the graph

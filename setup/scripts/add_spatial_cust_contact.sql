@@ -1,4 +1,4 @@
-create or replace procedure add_spatial_cust_contact as 
+create or replace procedure add_spatial_cust_contact authid current_user as 
 begin
  
         -- function

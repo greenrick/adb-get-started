@@ -1,4 +1,5 @@
-create or replace package workshop as
+create or replace package workshop authid current_user
+as
     
     /* Specify constants for the utility */
     repo varchar2(100)       := 'adb-get-started';
