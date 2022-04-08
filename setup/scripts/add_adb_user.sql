@@ -15,7 +15,8 @@ as
         end if;
         
         -- Raise exception with an error
-        workshop.exec('create user ' || user_name || ' identified by ' || pwd, true);
+        workshop.write('create user ' || user_name || ' identified by ####');
+        execute immediate 'create user ' || user_name || ' identified by ' || pwd;
 
         workshop.write('{ grant privileges }');
         workshop.exec('grant connect to ' || user_name);
