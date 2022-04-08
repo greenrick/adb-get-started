@@ -257,8 +257,8 @@ create or replace package body workshop as
     
     for i in 1 .. l_datasets.count
     loop 
-        if l_datasets(i).post_load_proc is not null then
-            exec ('begin ' || l_datasets(i).post_load_proc || '; end;');            
+        if l_datasets(i).post_load_proc is not null then            
+            exec ('begin admin.' || l_datasets(i).post_load_proc || '; end;');            
         end if;
     end loop;
     write('{ Done post-load procedures }'); 

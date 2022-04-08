@@ -996,3 +996,9 @@ begin
     
     
 end add_graph;
+/
+
+begin
+    workshop.exec('grant execute on add_graph to public');
+end;
+/

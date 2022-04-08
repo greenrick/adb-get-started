@@ -66,3 +66,8 @@ as
 
 end add_adb_user;
 /
+
+begin
+    workshop.exec('grant execute on add_adb_user to public');
+end;
+/

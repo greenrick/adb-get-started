@@ -15,3 +15,9 @@ begin
      
      workshop.write('adding graph complete.');
 end add_graph_job;
+/
+
+begin
+   workshop.exec('grant execute on add_graph_job to public');
+end;
+/
