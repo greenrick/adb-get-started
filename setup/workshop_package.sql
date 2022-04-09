@@ -68,7 +68,7 @@ create or replace package body workshop as
                         when -1 then
                             '#! Error !#' || message
                         when 1 then 
-                            '{ ' || message || ' }'
+                            '[- ' || message || ' -]'
                         when 4 then 
                             '    - ' || message
                         else
