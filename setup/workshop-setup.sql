@@ -29,7 +29,7 @@ create table workshop_log
 	    message varchar2(32000 byte),
         session_id number,
         username   varchar2(30)
-   ) ;
+   ) 
 /
 
 -- Data set listing based on config file on github
