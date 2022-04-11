@@ -2,8 +2,8 @@ create or replace procedure add_spatial_cust_contact authid current_user as
 begin
  
         -- function
-        workshop.write('{ adding spatial requirements }');
-        workshop.write('> create function latlon_to_geometry');
+        workshop.write('adding spatial requirements', 1);
+        workshop.write('create function latlon_to_geometry',2);
         workshop.exec ( '
             CREATE OR REPLACE FUNCTION latlon_to_geometry (
                latitude   IN  NUMBER,
@@ -31,7 +31,7 @@ begin
 
         begin
             -- SPATIAL METADATA UPDATES
-            workshop.write('> add spatial metadata');
+            workshop.write('add spatial metadata', 2);
 
             insert into user_sdo_geom_metadata values (
              'CUSTOMER_CONTACT',
@@ -44,18 +44,18 @@ begin
              commit;
         exception
             when others then
-                workshop.write(' *** unable to update spatial metadata for customer_contact');             
-                workshop.write(' .... ' || sqlerrm);                 
+                workshop.write('unable to update spatial metadata for customer_contact', -1);             
+                workshop.write(sqlerrm);                 
         end;
 
         -- Add spatial indexes
         begin
-            workshop.write('> create spatial indexes');
+            workshop.write('create spatial indexes', 2);
             workshop.exec ( 'CREATE INDEX customer_sidx ON customer_contact (latlon_to_geometry(loc_lat,loc_long)) INDEXTYPE IS mdsys.spatial_index_v2 PARAMETERS (''layer_gtype=POINT'')' );            
         exception
             when others then
-                workshop.write(' *** unable to create spatial index on customer_contact');             
-                workshop.write(' .... ' || sqlerrm);                 
+                workshop.write('unable to create spatial index on customer_contact', -1);             
+                workshop.write(sqlerrm);                 
         end;    
  
 end add_spatial_cust_contact;

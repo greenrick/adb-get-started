@@ -3,20 +3,20 @@ create or replace procedure add_graph authid current_user as
 begin
     -- Drop the graph
     begin
-        workshop.write('- attempt to drop graph graph');
+        workshop.write('attempt to drop graph graph', 1);
         opg_apis.drop_pg(graph_name => 'MOVIE_RECOMMENDATIONS');
     exception
         when others then
-            workshop.write('- .... no graph to drop');
+            workshop.write('no graph to drop');
         
     end;
     
     -- Create the graph
-    workshop.write('- create movie_recommendations graph');
+    workshop.write('create movie_recommendations graph', 2);
     opg_apis.create_pg(graph_owner => user_name, graph_name => 'MOVIE_RECOMMENDATIONS', tbs_set => 'DATA', options => 'SKIP_INDEX=T');
     
     -- create vertex
-    workshop.write('- create graph vertices');
+    workshop.write('create graph vertices', 2);
     execute immediate q'[
     INSERT /*+ append */ INTO MOVIE_RECOMMENDATIONSVT$
     (VID, VL, K, T, V, VN, VT)
@@ -292,7 +292,7 @@ begin
     commit;
     
     -- Create a second vertex
-    workshop.write('- create second graph vertex');
+    workshop.write('create second graph vertex', 2);
     
     execute immediate q'[
     INSERT /*+ append */ INTO MOVIE_RECOMMENDATIONSVT$
@@ -835,7 +835,7 @@ begin
     
     commit;
     
-    workshop.write('- adding graph edges');
+    workshop.write('adding graph edges', 2);
     execute immediate q'[
     INSERT /*+ append */ INTO MOVIE_RECOMMENDATIONSGE$
     (EID, SVID, DVID, EL, K, T, V, VN, VT)
@@ -988,10 +988,10 @@ begin
     
     commit;
     
-    workshop.write('- update graph index');
+    workshop.write('update graph index', 2);
     opg_apis.create_pg(graph_owner => user_name, graph_name => 'MOVIE_RECOMMENDATIONS', dop => 2, tbs_set => 'DATA', options => 'SKIP_TABLE=T');
 
-    workshop.write('- graph updates complete.');
+    workshop.write('graph updates complete.', 1);
     
     
     

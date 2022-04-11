@@ -2,8 +2,8 @@ create or replace procedure add_spatial_pizza authid current_user as
 begin
  
         -- function
-        workshop.write('{ adding spatial requirements }');
-        workshop.write('> create function latlon_to_geometry');
+        workshop.write('adding spatial requirements', 1);
+        workshop.write('create function latlon_to_geometry',2);
         workshop.exec ( '
             CREATE OR REPLACE FUNCTION latlon_to_geometry (
                latitude   IN  NUMBER,
@@ -42,17 +42,17 @@ begin
             commit;
         exception
             when others then
-                workshop.write(' - unable to update spatial metadata for pizza_location');             
-                workshop.write(' .... ' || sqlerrm);                 
+                workshop.write('unable to update spatial metadata for pizza_location', -1);             
+                workshop.write(sqlerrm);                 
         end;
 
         begin
-            workshop.write('> create spatial indexes');
+            workshop.write('create spatial indexes', 2);
             workshop.exec ( 'CREATE INDEX pizza_location_sidx ON pizza_location (latlon_to_geometry(lat,lon)) INDEXTYPE IS mdsys.spatial_index_v2 PARAMETERS (''layer_gtype=POINT'')' );     
         exception
             when others then
-                workshop.write(' **** unable to create spatial index on pizza_location');             
-                workshop.write(' .... ' || sqlerrm);                 
+                workshop.write('unable to create spatial index on pizza_location', -1);             
+                workshop.write(sqlerrm);                 
         end;    
  
 end add_spatial_pizza;

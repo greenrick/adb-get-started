@@ -8,9 +8,9 @@ as
         from all_users
         where upper(username) = upper(user_name);
 
-        workshop.write('{ create user }');
+        workshop.write('create user', 1);
         if l_count > 0 then
-            workshop.write('FAILED: ' || user_name || ' already exists.');
+            workshop.write(user_name || ' already exists.', -1);
             return;
         end if;
         
@@ -18,7 +18,7 @@ as
         workshop.write('create user ' || user_name || ' identified by ####');
         execute immediate 'create user ' || user_name || ' identified by ' || pwd;
 
-        workshop.write('{ grant privileges }');
+        workshop.write('grant privileges', 1);
         workshop.exec('grant connect to ' || user_name);
         workshop.exec('grant resource to ' || user_name);
         workshop.exec('grant dwrole to ' || user_name);
@@ -46,8 +46,8 @@ as
             
         commit;
 
-        workshop.write('{ TO DO }');
-        workshop.write('Run the following as "ADMIN" in SQL Worksheet to allow your new user to use the SQL Tools');
+        workshop.write('TO DO', 1);
+        workshop.write('Run the following as "ADMIN" in SQL Worksheet to allow your new user to use the SQL Tools', 2);
         workshop.write('begin 
                 ords_admin.enable_schema (
                     p_enabled               => TRUE,
@@ -59,7 +59,7 @@ as
                 /');
 
         EXCEPTION when others then
-            workshop.write('Unable to create the user.');
+            workshop.write('Unable to create the user.', -1);
             workshop.write(sqlerrm);
             raise;
 
