@@ -258,8 +258,8 @@ create or replace package body workshop as
                 from user_load_operations
                 where id = l_opid;
                      
-                write ('status : ' || l_load_op_rec.status, 2);
-                write ('# rows : ' || l_load_op_rec.rows_loaded, 2);
+                write ('status : ' || l_load_op_rec.status, 3);
+                write ('# rows : ' || l_load_op_rec.rows_loaded, 3);
                 
                 if not debug_on then
                     write('dropping logging tables (enable debugging to preserve logs)', 2);
@@ -282,9 +282,9 @@ create or replace package body workshop as
     write('Adding constraints', 1);
     
     for i in 1 .. l_datasets.count
-    loop 
-        write('adding constraints for table ' || l_datasets(i).table_name , 2);
+    loop         
         if l_datasets(i).constraints is not null then
+            write('adding constraints for table ' || l_datasets(i).table_name , 2);
             exec (l_datasets(i).constraints);            
         end if;
     end loop;
@@ -352,7 +352,7 @@ create or replace package body workshop as
               ) -- table
     ) 
    loop 
-      write('installing' || rec.name, 2);
+      write('installing ' || rec.name, 2);
       dbms_cloud_repo.install_file(
         repo        => l_git,
         file_path   => rec.name);
