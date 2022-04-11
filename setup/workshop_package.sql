@@ -223,7 +223,7 @@ create or replace package body workshop as
         -- otherwise, create the table during the load
         write('Creating table ' || l_datasets(i).table_name, 2);
         if l_datasets(i).source_uri is null then
-            continue;
+            write('deferring create table ' || l_datasets(i).table_name || ' until the load step', 2);
         end if;
         
         exec (l_datasets(i)."SQL");            
