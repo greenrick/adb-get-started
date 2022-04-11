@@ -128,9 +128,8 @@ create or replace package body workshop as
         5. add constraints
         6. run any post-processor
     **/
-    write('**');
     write('begin adding data sets', 1);
-    write('debug=' || case when debug_on then 'true' else 'false' end);
+    write('debug=' || case when debug_on then 'true' else 'false' end), 2;
     
     -- upper case, no spaces
     l_table_names := replace(trim(upper(table_names)), ' ', '');
@@ -222,6 +221,7 @@ create or replace package body workshop as
     loop 
         -- only create tables sourced from object store
         -- otherwise, create the table during the load
+        write('Creating table ' || l_datasets(i).table_name, 2);
         if l_datasets(i).source_uri is null then
             continue;
         end if;
@@ -282,6 +282,7 @@ create or replace package body workshop as
     
     for i in 1 .. l_datasets.count
     loop 
+        write('adding constraints for table ' || l_datasets(i).table_name , 2);
         if l_datasets(i).constraints is not null then
             exec (l_datasets(i).constraints);            
         end if;
@@ -295,7 +296,8 @@ create or replace package body workshop as
     
     for i in 1 .. l_datasets.count
     loop 
-        if l_datasets(i).post_load_proc is not null then            
+        if l_datasets(i).post_load_proc is not null then   
+            write('run post-load procedure for table ' || l_datasets(i).table_name , 2);         
             exec ('begin admin.' || l_datasets(i).post_load_proc || '; end;');            
         end if;
     end loop;
