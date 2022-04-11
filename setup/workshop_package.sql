@@ -129,7 +129,7 @@ create or replace package body workshop as
         6. run any post-processor
     **/
     write('begin adding data sets', 1);
-    write('debug=' || case when debug_on then 'true' else 'false' end), 2;
+    write('debug=' || case when debug_on then 'true' else 'false' end, 2);
     
     -- upper case, no spaces
     l_table_names := replace(trim(upper(table_names)), ' ', '');
