@@ -224,9 +224,11 @@ create or replace package body workshop as
         write('Creating table ' || l_datasets(i).table_name, 2);
         if l_datasets(i).source_uri is null then
             write('deferring create table ' || l_datasets(i).table_name || ' until the load step', 2);
-        end if;
-        
-        exec (l_datasets(i)."SQL");            
+        else 
+            write('create table ' || l_datasets(i).table_name, 2);
+            exec (l_datasets(i)."SQL");
+        end if;        
+                    
     end loop;
     write('Done creating tables', 1);
     
