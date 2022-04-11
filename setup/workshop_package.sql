@@ -221,7 +221,6 @@ create or replace package body workshop as
     loop 
         -- only create tables sourced from object store
         -- otherwise, create the table during the load
-        write('Creating table ' || l_datasets(i).table_name, 2);
         if l_datasets(i).source_uri is null then
             write('deferring create table ' || l_datasets(i).table_name || ' until the load step', 2);
         else 
