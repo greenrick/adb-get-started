@@ -5,7 +5,7 @@
         {
           "title": "INTRODUCTION",
           "type": "odbw",
-          "filename": "../../introduction/introduction.md",
+          "filename": "../introduction/introduction.md",
           "style": "color:#312D2A;font-weight:bolder;"
         },
         {
@@ -16,218 +16,219 @@
         {
           "title": "PROVISION ADB",
           "type": "freetier",
-          "filename": "../../setup/setup.md",
+          "filename": "../setup/setup.md",
           "style":"color:#312D2A;font-weight:bolder;"
         },
         {
           "title": "Provision using the OCI Console",
           "type": "freetier",
           "style":"color:#312D2A;",
-          "filename": "../../provision-database/adb-provision-moviestream.md"          
+          "filename": "../provision-database/adb-provision-console.md",
+          "db-name":"MYQUICKSTART"          
         },
         {
           "title": "Provision using the Python API",
           "type": "freetier",
           "style":"color:#312D2A;",
-          "filename": "../../provision-database/adb-provision-moviestream.md"
+          "filename": "../provision-database/adb-provision-moviestream.md"
         },        
         {
           "title": "Add workshop utilities from github",
           "style":"color:#312D2A;",
-          "filename": "../../setup/add-workshop-utilities.md"
+          "filename": "../setup/add-workshop-utilities.md"
         },   
         {
           "title": "USING THE OCI CONSOLE",
           "type": "freetier",
           "style":"color:#759C6C;font-weight:bolder;",
-          "filename": "../../provision-database/adb-provision-moviestream.md"
+          "filename": "../provision-database/adb-provision-moviestream.md"
         },        
         {
           "title": "Exploring ADB Features",
           "style":"color:#759C6C;",
-          "filename": "../../setup/add-workshop-utilities.md"
+          "filename": "../setup/add-workshop-utilities.md"
         },                             
         {
           "title": "Using Cloud Shell",
           "style":"color:#759C6C;",
-          "filename": "../../setup/add-workshop-utilities.md"
+          "filename": "../setup/add-workshop-utilities.md"
         },     
         {
           "title": "MANAGING USERS",
           "type": "freetier",
           "style":"color:#312D2A;font-weight:bolder;",
-          "filename": "../../provision-database/adb-provision-moviestream.md"
+          "filename": "../provision-database/adb-provision-moviestream.md"
         },
         {
           "title": "Create a database user using Database Tools",
           "type": "freetier",
           "style":"color:#312D2A;",
-          "filename": "../../provision-database/adb-provision-moviestream.md"
+          "filename": "../provision-database/adb-provision-moviestream.md"
         },
         {
           "title": "Using IAM users and groups",
           "type": "freetier",
           "style":"color:#312D2A;",
-          "filename": "../../provision-database/adb-provision-moviestream.md"
+          "filename": "../provision-database/adb-provision-moviestream.md"
         },
         {
           "title": "CONNECTING TO ADB",
           "type": "freetier",
           "style":"color:#759C6C;font-weight:bolder;",
-          "filename": "../../provision-database/adb-provision-moviestream.md"
+          "filename": "../provision-database/adb-provision-moviestream.md"
         },
         {
           "title": "LOADING DATA",
           "style":"color:#312D2A;font-weight:bolder;",
-          "filename": "../../load-data/load-data.md"
+          "filename": "../load-data/load-data.md"
       },
         {
             "title": "Use Data Tools to load data",
             "style":"color:#312D2A;",
-            "filename": "../../load-data/load-data.md"
+            "filename": "../load-data/load-data.md"
         },
         {
           "title": "Using PLSQL to load data",
           "style":"color:#312D2A;",
-          "filename": "../../load-data/load-data.md"
+          "filename": "../load-data/load-data.md"
       },
       {
         "title": "Transforming Data",
         "style":"color:#312D2A;",
-        "filename": "../../load-data/load-data.md"
+        "filename": "../load-data/load-data.md"
     },      
       {
         "title": "ANALYZE",
         "type": "freetier",
         "style":"color:#759C6C;font-weight:bolder;",
-        "filename": "../../analyzing-movie-sales-data/analyzing-movie-sales-data.md"
+        "filename": "../analyzing-movie-sales-data/analyzing-movie-sales-data.md"
       },        
         {
           "title": "Use SQL to analyze movie sales data",
           "style":"color:#759C6C;",
-          "filename": "../../analyzing-movie-sales-data/analyzing-movie-sales-data.md"          
+          "filename": "../analyzing-movie-sales-data/analyzing-movie-sales-data.md"          
         },
         {
           "title": "Create Dashboards with Analytics Cloud",
           "style":"color:#759C6C;",
-          "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+          "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
         },          
         {
           "title": "Use OML to Predict Customer Churn",
           "type": "freetier",
           "style":"color:#759C6C;",
-          "filename": "../../predict-churn/predict-churn.md"
+          "filename": "../predict-churn/predict-churn.md"
       },
       {
         "title": "Find the closest pizza shops with Oracle Spatial",
         "style":"color:#759C6C;",
-        "filename": "../../apply-spatial/apply-spatial.md"
+        "filename": "../apply-spatial/apply-spatial.md"
     }, 
     {
       "title": "Use Graph Analytics for Product Recommendations",
       "style":"color:#759C6C;",
-      "filename": "../../apply-graph/apply-graph.md"
+      "filename": "../apply-graph/apply-graph.md"
   },  
     {
       "title": "DATA LAKE INTEGRATION",
       "style":"color:#312D2A;font-weight:bolder;",
-      "filename": "../../apply-spatial/apply-spatial.md"
+      "filename": "../apply-spatial/apply-spatial.md"
   },    
   {
     "title": "Lab 11: Integrate with the Data Lake using Data Catalog",
     "style":"color:#312D2A;",
-    "filename": "../../apply-spatial/apply-spatial.md"
+    "filename": "../apply-spatial/apply-spatial.md"
 },    
 {
   "title": "Using Partitioning with Object Store Data",
   "style":"color:#312D2A;",
-  "filename": "../../apply-spatial/apply-spatial.md"
+  "filename": "../apply-spatial/apply-spatial.md"
 },    
     {
       "title": "APPLICATION DEVELOPMENT",
       "style":"color:#759C6C;font-weight:bolder;",
-      "filename": "../../apply-spatial/apply-spatial.md"
+      "filename": "../apply-spatial/apply-spatial.md"
   },   
  
     {
       "title": "Create JSON Collections",
       "style":"color:#759C6C;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },
     {
       "title": "Use SODA REST API with JSON Collections ",
       "style":"color:#759C6C;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },
     {
       "title": "Use MongoDB API with JSON Collections ",
       "style":"color:#759C6C;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },
     {
       "title": "Query JSON Data with SQL",
       "style":"color:#759C6C;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },
     {
       "title": "Create an Application with Visual Builder",
       "style":"color:#759C6C;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },
     {
       "title": "Build a Movies Watchlist with APEX",
       "style":"color:#759C6C;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },        
     {
       "title": "SECURITY",
       "style":"color:#312D2A;font-weight:bolder;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },
     {
       "title": "Use Wallets for Secure Connections",
       "style":"color:#312D2A;font-weight:bolder;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },        
     {
       "title": "Prevent Unauthorized Data Access with Database Vault",
       "style":"color:#312D2A;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },
     {
       "title": "Use Data Safe to Audit Data and Manage Risk",
       "style":"color:#312D2A;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },        
     {
       "title": "{ MANAGE AND MONITOR }",
       "style":"color:#759C6C;font-weight:bolder;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },
     {
       "title": "Manage and Monitor ADB",
       "style":"color:#759C6C;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },  
     {
       "title": "Scaling Autonomous Database",
       "style":"color:#759C6C;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },  
     {
       "title": "Enable Disaster Recovery",
       "style":"color:#759C6C;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },  
     {
       "title": "Create Refreshable Clones",
       "style":"color:#759C6C;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },  
     {
       "title": "Lab 27: Set Event and Alarm Notifications",
       "style":"color:#759C6C;",
-      "filename": "../../working-with-semi-structured-data/working-with-semi-structured-data.md"
+      "filename": "../working-with-semi-structured-data/working-with-semi-structured-data.md"
     },  
     {
       "title": "Need Help?",
