@@ -1,5 +1,10 @@
 {
     "workshoptitle": "Get Started with Autonomous Database",
+    "include": {
+      "adb-provision-console-body.md":"../provision-database/adb-provision-console-body.md",
+      "sql-tools-worksheet-body.md":"../ux-common/sql-tools-worksheet-body.md"
+
+    },
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
         {
@@ -22,9 +27,8 @@
         {
           "title": "Provision using the OCI Console",
           "type": "freetier",
-          "style":"color:#312D2A;",
-          "filename": "../provision-database/adb-provision-console.md",
-          "db-name":"MYQUICKSTART"          
+          "style":"color:#312D2A;",          
+          "filename": "../provision-database/adb-provision-console.md"
         },
         {
           "title": "Provision using the Python API",
@@ -77,6 +81,12 @@
           "style":"color:#759C6C;font-weight:bolder;",
           "filename": "../provision-database/adb-provision-moviestream.md"
         },
+        {
+          "title": "Using SQL Worksheet",
+          "type": "freetier",
+          "style":"color:#759C6C;font-weight;",
+          "filename": "../ux-common/sql-tools-worksheet.md"
+        },        
         {
           "title": "LOADING DATA",
           "style":"color:#312D2A;font-weight:bolder;",
