@@ -2,8 +2,5 @@
     "db_name": "MYQUICKSTART",
     "livelabs_db_name": "MOVIE+your user id",
     "livelabs_example_db_name": "MOVIE2252",
-    "db_display_name":"MYQUICKSTART",
-    "var2": "Variable 2 value",
-    "random_name": "LiveLabs rocks!",
-    "number_of_ocpu_paid": "24"
+    "db_display_name":"MYQUICKSTART"
  }
