@@ -1,8 +1,8 @@
-# A quick tour Of The Autonomous Data Warehouse console
+# A quick tour of the Oracle Autonomous Database console
 
 ## Introduction
 
-Autonomous Data Warehouse provides a web-based console to create, manage, and monitor Autonomous Databases. Let's take a quick tour of the Autonomous Data Warehouse console. 
+Autonomous Database provides a web-based console to create, manage, and monitor your databases. Let's take a quick tour of the Autonomous Database console. 
 
 Estimated Time: 10 minutes
 

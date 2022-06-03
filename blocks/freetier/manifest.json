@@ -2,9 +2,13 @@
     "workshoptitle": "Get Started with Autonomous Database",
     "include": {
       "adb-provision-console-body.md":"../provision-database/adb-provision-console-body.md",
-      "sql-tools-worksheet-body.md":"../ux-common/sql-tools-worksheet-body.md"
-
+      "sql-tools-worksheet-body.md":"../ux-common/sql-tools-worksheet-body.md",
+      "compartment-create-body.md":"../ux-common/compartment-create-body.md",
+      
+      "adb-provision-body.md":"../ux-common/adb-provision-body.md",
+      "adb-goto-service-body.md":"../ux-common/adb-goto-service-body.md"
     },
+    "variables": ["variables.json"],
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
         {
@@ -18,6 +22,16 @@
           "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md",
           "style":"color:#759C6C;font-weight:bolder;"
         },
+        {
+          "title": "Sign up for Oracle Cloud",
+          "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/pre-register-free-tier-account.md",
+          "style":"color:#759C6C;font-weight;"
+        },   
+        {
+          "title": "Tour the service",
+          "filename": "../guided-tour/guided-tour.md",
+          "style":"color:#759C6C;font-weight;"
+        },              
         {
           "title": "PROVISION ADB",
           "type": "freetier",

@@ -8,7 +8,7 @@
 
 In just a few minutes, Autonomous Database lets you deploy a complete data warehousing platform that can scale to your requirements. And, you can use its Database Tools to easily populate that warehouse from the data lake.
 
-This lab walks you through the steps to get started using the Oracle Autonomous Database (Autonomous Data Warehouse [ADW] and Autonomous Transaction Processing [ATP]) on Oracle Cloud Interface. In this lab, you provision a new ADW instance.
+This lab walks you through the steps to get started using the Oracle Autonomous Database (Autonomous Data Warehouse [ADW] and Autonomous Transaction Processing [ATP]) on Oracle Cloud Infrastructure. In this lab, you provision a new ADW instance.
 
 Estimated Time: 5 minutes
 
@@ -23,7 +23,28 @@ In this lab, you will:
 
 -   This lab requires completion of the Get Started section in the Contents menu on the left.
 
-[](include:adb-provision-console-body.md) 
+<if type="freetier">
+## Task 1: Create a compartment
+[](include:compartment-create-body.md)
+</if>
+
+<if type="freetier">
+## Task 2: Choose Autonomous Database from the services menu
+[](include:adb-goto-service-body.md)
+</if>
+<if type="freetier">
+## Task 3: Create the Autonomous Database instance
+[](include:adb-provision-body.md)
+</if>
+
+<if type="livelabs">
+## Task 1: Choose Autonomous Data Warehouse from the services menu
+[](include:adb-goto-service-body.md)
+</if>
+<if type="livelabs">
+## Task 2: Create the Autonomous Data Warehouse instance
+[](include:adb-provision-body.md)
+</if>
 
 Please *proceed to the next lab*.
 
@@ -35,4 +56,5 @@ See the [documentation](https://docs.oracle.com/en/cloud/paas/autonomous-data-wa
 
 - **Author** - Nilay Panchal, Oracle Autonomous Database Product Management
 - **Adapted for Cloud by** - Richard Green, Principal Developer, Database User Assistance
-- **Last Updated By/Date** - Richard Green, January 2022
+- **Last Updated By/Date** - Marty Gubar, ADB PM
+- **Built with Blocks**

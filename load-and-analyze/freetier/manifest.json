@@ -1,5 +1,12 @@
 {
     "workshoptitle": "Autonomous Database Quickstart Workshop",
+    "include": {
+        "adb-provision-console-body.md":"../../blocks/provision-database/adb-provision-console-body.md",
+        "sql-tools-worksheet-body.md":"../../blocks/ux-common/sql-tools-worksheet-body.md",
+        "create-compartment-body.md":"../../blocks/ux-common/create-compartment-body.md",
+        "create-adb-body.md":"../../blocks/ux-common/create-adb-body.md",
+        "goto-adb-service-body.md":"../../blocks/ux-common/goto-adb-service-body.md"
+      },
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
         {
@@ -17,6 +24,8 @@
             "title": "Lab 1: Provision an Autonomous Database",
             "description": "Provision Autonomous Database",
             "type": "freetier",
+            "db-name":"moviestream",
+            "db-cpus":"2",
             "filename": "../../blocks/provision-database/adb-provision-console.md"
         },
         {
