@@ -1,11 +1,11 @@
 {
     "workshoptitle": "Get Started with Autonomous Database",
     "include": {
-      "adb-provision-console-body.md":"../provision-database/adb-provision-console-body.md",
-      "sql-tools-worksheet-body.md":"../ux-common/sql-tools-worksheet-body.md",
-      "compartment-create-body.md":"../ux-common/compartment-create-body.md",
-      "adb-provision-body.md":"../ux-common/adb-provision-body.md",
-      "adb-goto-service-body.md":"../ux-common/adb-goto-service-body.md"
+      "adb-provision-console-body.md":"/blocks/provision-database/adb-provision-console.md",
+      "sql-tools-worksheet-body.md":"/blocks/ux-common/sql-tools-worksheet-body.md",
+      "compartment-create-body.md":"/blocks/ux-common/compartment-create-body.md",
+      "adb-provision-body.md":"/blocks/ux-common/adb-provision-body.md",
+      "adb-goto-service-body.md":"/blocks/ux-common/adb-goto-service-body.md"
     },
     "variables": ["variables.json"],
     "help": "livelabs-help-db_us@oracle.com",
@@ -14,7 +14,7 @@
           "title": "Provision using the OCI Console",
           "type": "freetier",
           "style":"color:#312D2A;",          
-          "filename": "../provision-database/adb-provision-console.md"
+          "filename": "/blocks/provision-database/adb-provision-console.md"
         },  
         {
           "title": "Need Help?",

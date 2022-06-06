@@ -1,8 +1,8 @@
 1. In the OCI Service Console, click the navigation menu in the upper left to show top level navigation choices. Select **Oracle Database -> Autonomous Data Warehouse** 
 
      > **Note:** You can also directly access your Autonomous Data Warehouse service in the **Quick Actions** section of the dashboard.
-
-    ![Click Autonomous Data Warehouse.](http://127.0.0.1:5501/blocks/ux-common/images/oci-navigation-adw.png " ")
+                                        
+    ![Click Autonomous Data Warehouse.](/blocks/ux-common/images/oci-navigation-adw.png " ")
 
 2. Make sure your workload type is **Data Warehouse** or **All** to see your Autonomous Data Warehouse instances. <if type="freetier">Use the **List Scope** drop-down menu to select the compartment you just created.</if><if type="livelabs">In the **List Scope**, enter the first part of the LiveLabs compartment assigned to you, then select the compartment from the list.</if>
 

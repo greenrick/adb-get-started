@@ -2,7 +2,7 @@ A compartment is a collection of cloud assets, like compute instances, load bala
 
 1. Click the three-line menu, which is on the top left of the console. Scroll down till the bottom of the menu, click **Identity & Security -> Compartments**. 
 
-    ![Click Identity & Security then Compartments.](http://127.0.0.1:5501/blocks/ux-common/images/oci-navigation-compartments.png " ")
+    ![Click Identity & Security then Compartments.](/blocks/ux-common/images/oci-navigation-compartments.png " ")
 
     Then, click the blue **Create Compartment** button to create a sub-compartment.
 
