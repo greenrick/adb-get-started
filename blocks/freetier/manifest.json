@@ -2,10 +2,10 @@
     "workshoptitle": "Get Started with Autonomous Database",
     "include": {
       "adb-provision-console-body.md":"/blocks/provision-database/adb-provision-console.md",
-      "sql-tools-worksheet-body.md":"/blocks/ux-common/sql-tools-worksheet-body.md",
-      "compartment-create-body.md":"/blocks/ux-common/compartment-create-body.md",
-      "adb-provision-body.md":"/blocks/ux-common/adb-provision-body.md",
-      "adb-goto-service-body.md":"/blocks/ux-common/adb-goto-service-body.md"
+      "sql-tools-worksheet-body.md":"/blocks/ux-common/adb/sql-tools-worksheet-body.md",
+      "compartment-create-body.md":"/blocks/ux-common/iam/compartment-create-body.md",
+      "adb-provision-body.md":"/blocks/ux-common/adb/adb-provision-body.md",
+      "adb-goto-service-body.md":"/blocks/ux-common/adb/adb-goto-service-body.md"
     },
     "variables": ["variables.json"],
     "help": "livelabs-help-db_us@oracle.com",
