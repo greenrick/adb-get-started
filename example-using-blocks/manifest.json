@@ -1,5 +1,5 @@
 {
-    "workshoptitle": "LiveLabs Building Blocks",
+    "workshoptitle": "Get Started with Autonomous Database",
     "include": {
       "provision-console-body.md":"/blocks/ux-common/adb/provision-body.md",
       "sql-tools-worksheet-body.md":"/blocks/ux-common/adb/sql-tools-worksheet-body.md",
@@ -12,21 +12,12 @@
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
         {
-          "title": "Get Started",
-          "description": "Get a Free Trial",
-          "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
-        },      
-        {
-          "title": "Authoring using Blocks",          
-          "filename": "/blocks/authoring-and-using-blocks.md"
-        },
-        {
-          "title": "Provisioning ADB",
-          "type": "freetier",      
-          "filename": "/blocks/adb/provision-database/provision.md"
+          "title": "Provision using the OCI Console",
+          "type": "livelabs",      
+          "filename": "/blocks/adb/provision-database/provision-console.md"
         },  
         {
-          "title": "Connecting to ADB",
+          "title": "Connect with SQL Worksheet",
           "type": "livelabs",        
           "filename": "/blocks/adb/connect/connect-sql-worksheet.md"
         },          
