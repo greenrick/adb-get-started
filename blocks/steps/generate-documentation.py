@@ -1,4 +1,4 @@
-# This script generates the documentation for block components.
+# This script generates the documentation for block services.
 # It builds 2 things:
 #   1. manifest.json
 #   2. markdown file for each category
@@ -8,14 +8,14 @@ from datetime import date
 
 # Initialize
 path_area_start = os.path.dirname(os.path.realpath(__file__)) + "/"
-blocks_path = "blocks/ux-common"
-component_list_path = "blocks/ux-common/component-list"
+blocks_path = "blocks/steps"
+service_list_path = "blocks/steps/services"
 output = None
 files = sorted(filter( os.path.isfile, glob.glob(path_area_start + '**/*.md', recursive=True)))
 
-components = []
+services = []
 
-class Component:
+class Service:
     name = None
     path = None
     area = None
@@ -29,17 +29,17 @@ def write (s):
         output = output + "\n" + s
 
 
-# Populate list of components
+# Populate list of services
 for f in files:
-    a = f.find(component_list_path)
-    if f.find(component_list_path) >= 0:
+    a = f.find(service_list_path)
+    if f.find(service_list_path) >= 0:
         continue
 
-    c = Component()
+    c = Service()
     c.name = f[f.rfind("/")+1:]
     c.path = f[f.rfind(blocks_path):]
     c.area = f[len(path_area_start):f.rfind("/")]
-    components.append(c)
+    services.append(c)
     
 
 #######
@@ -48,26 +48,27 @@ for f in files:
 write("{")
 write(' "workshoptitle":"LiveLabs Building Blocks",')
 write(' "include": {')
-for c in components:
+for c in services:
     write('     "' + c.name + '":"/' + c.path + '",')
 
 output = output[:len(output)-1]
 
 write(' },') # include
 write(' "help": "livelabs-help-db_us@oracle.com",')
+write(' "variables": ["/blocks/variables/variables.json"],')
 write(' "tutorials": [  ')
 write('')
 write('     {')
-write('         "title": "Authoring using Blocks",' )
+write('         "title": "Authoring using Blocks and Steps",' )
 write('         "type": "freetier",' )
-write('         "filename": "/blocks/authoring-and-using-blocks.md"' )
+write('         "filename": "/blocks/how-to-author-with-blocks/how-to-author-with-blocks.md"' )
 write('     },')
 
 current_area = None
-for c in components:
+for c in services:
     if c.area != current_area:
         current_area = c.area
-        filename = "/" + component_list_path + "/" + c.area + ".md"
+        filename = "/" + service_list_path + "/" + c.area + ".md"
         write('     {')
         write('         "title": "' + c.area.upper() + '",' )
         write('         "type": "freetier",' )
@@ -79,7 +80,7 @@ write('  ]')
 write('}')
 print(output)
 
-h_manifest = open(path_area_start + "/component-list/manifest.json", "w")
+h_manifest = open(path_area_start + "/services/manifest.json", "w")
 h_manifest.write(output)
 h_manifest.close
 
@@ -89,7 +90,7 @@ h_manifest.close
 current_area = None
 output = None
 h_mdfile = None
-for c in components:
+for c in services:
     # Each area has its own markdown file
     if c.area != current_area:
         if h_mdfile:            
@@ -100,10 +101,10 @@ for c in components:
             output = None
 
         #Initialize the new markdown file
-        h_mdfile = open(path_area_start + "/component-list/" + c.area + ".md", "w")       
+        h_mdfile = open(path_area_start + "/services/" + c.area + ".md", "w")       
         current_area = c.area
         
-        write('# Block Components: ' + c.area.upper())
+        write('# Block services: ' + c.area.upper())
 
     write('## ' + c.name)
     write('**Manifest:**')
@@ -112,6 +113,12 @@ for c in components:
     write('     "' + c.name + '":"/' + c.path + '"')
     write('}')
     write("```")
+    write("")
+    write("**Markdown:**")
+    write("```")
+    write("[]&lpar;" + c.name + ")")
+    write("```")
+    write("")
     write('**Content:**')
     write(" ")
     write("[](include:" + c.name + ")")

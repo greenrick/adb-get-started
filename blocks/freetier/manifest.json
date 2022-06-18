@@ -1,14 +1,14 @@
 {
     "workshoptitle": "LiveLabs Building Blocks",
     "include": {
-      "provision-console-body.md":"/blocks/ux-common/adb/provision-body.md",
-      "sql-tools-worksheet-body.md":"/blocks/ux-common/adb/sql-tools-worksheet-body.md",
-      "compartment-create-body.md":"/blocks/ux-common/iam/compartment-create-body.md",
-      "provision-body.md":"/blocks/ux-common/adb/provision-body.md",
-      "goto-service-body.md":"/blocks/ux-common/adb/goto-service-body.md",
-      "connect-with-sql-worksheet-body.md":"/blocks/ux-common/adb/connect-with-sql-worksheet-body.md"   
+      "provision-console-body.md":"/blocks/steps/adb/provision-body.md",
+      "sql-tools-worksheet-body.md":"/blocks/steps/adb/sql-tools-worksheet-body.md",
+      "compartment-create-body.md":"/blocks/steps/iam/compartment-create-body.md",
+      "provision-body.md":"/blocks/steps/adb/provision-body.md",
+      "goto-service-body.md":"/blocks/steps/adb/goto-service-body.md",
+      "connect-with-sql-worksheet-body.md":"/blocks/steps/adb/connect-with-sql-worksheet-body.md"   
     },
-    "variables": ["variables.json"],
+    "variables": ["/blocks/variables/variables.json"],
     "help": "livelabs-help-db_us@oracle.com",
     "tutorials": [
         {
@@ -16,10 +16,6 @@
           "description": "Get a Free Trial",
           "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
         },      
-        {
-          "title": "Authoring using Blocks",          
-          "filename": "/blocks/authoring-and-using-blocks.md"
-        },
         {
           "title": "Provisioning ADB",
           "type": "freetier",      

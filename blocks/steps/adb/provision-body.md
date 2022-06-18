@@ -20,7 +20,7 @@
 <if type="livelabs">
     - **Choose a compartment** - Use the default compartment created for you.
     - **Display Name** - Enter a memorable name for the database for display purposes. For this lab, use **[](var:db_display_name)**.
-    - **Database Name** - Use letters and numbers only, starting with a letter. Maximum length is 14 characters. (Underscores not supported.) For this lab, use **[](var:livelabs_db_name)**, for example, **[](var:livelabs_example_db_name)**.
+    - **Database Name** - Use letters and numbers only, starting with a letter. Maximum length is 14 characters. (Underscores not supported.) For this lab, use **[](var:db_name_livelabs)**, for example, **[](var:db_name_livelabs_example)**.
 
     ![Enter the required details.](./images/adb-create-screen-names.png " ")
 </if>
@@ -32,7 +32,7 @@
     - **JSON Database** - is Oracle Autonomous Transaction Processing, but designed for developing NoSQL-style applications that use JavaScript Object Notation (JSON) documents. You can store up to 20 GB of data other than JSON document collections. There is no storage limit for JSON collections.
     - **APEX** - is a low cost, Oracle Cloud service offering convenient access to the Oracle APEX platform for rapidly building and deploying low-code applications
 
-    For this workshop, pick **[](var:workload_type)**
+    For this workshop, pick **[](var:db_workload_type)**
 
     ![Choose a workload type.](images/adb-create-screen-workload.png " ")
 
@@ -47,8 +47,8 @@
 
     - **Always Free** - If your Cloud Account is an Always Free account, you can select this option to create an always free autonomous database. An always free database comes with 1 OCPU and 20 GB of storage. For this lab, we recommend you leave Always Free unchecked.
     - **Choose database version** - Select 19c as the database version.
-    - **OCPU count** - Number of OCPUs for your service. For this lab, specify **1 OCPU**. If you choose an Always Free database, it comes with 1 OCPU.
-    - **Storage (TB)** - Select your storage capacity in terabytes. For this lab, specify **1 TB** of storage. Or, if you choose an Always Free database, it comes with 20 GB of storage.
+    - **OCPU count** - Number of OCPUs for your service. For this lab, specify **[](var:db_ocpu)**. If you choose an Always Free database, it comes with 1 OCPU.
+    - **Storage (TB)** - Select your storage capacity in terabytes. For this lab, specify **[](var:db_storage)** of storage. Or, if you choose an Always Free database, it comes with 20 GB of storage.
     - **Auto Scaling** - For this lab, keep auto scaling enabled, to enable the system to automatically use up to three times more OCPU and IO resources to meet workload demand.
     - **New Database Preview** - If a checkbox is available to preview a new database version, do NOT select it.
 

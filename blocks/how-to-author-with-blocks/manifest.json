@@ -1,0 +1,16 @@
+{
+    "workshoptitle": "LiveLabs Building Blocks",
+    "include": {
+      "provision-body.md":"/blocks/steps/adb/provision-body.md",
+      "goto-service-body.md":"/blocks/steps/adb/goto-service-body.md"
+    },
+    "variables": ["/blocks/variables/variables.json"],
+    "help": "livelabs-help-db_us@oracle.com",
+    "tutorials": [
+        {
+          "title": "Authoring using Blocks", 
+          "type":"freetier",        
+          "filename": "/blocks/how-to-author-with-blocks/how-to-author-with-blocks.md"
+        }
+    ]
+}
