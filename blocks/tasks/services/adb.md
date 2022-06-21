@@ -12,7 +12,7 @@
 []&lpar;connect-with-sql-worksheet-body.md)
 ```
 
-**Content:**
+**Markdown Output &#8595;&#8595;:**
  
 [](include:connect-with-sql-worksheet-body.md)
  
@@ -29,7 +29,7 @@
 []&lpar;goto-service-body.md)
 ```
 
-**Content:**
+**Markdown Output &#8595;&#8595;:**
  
 [](include:goto-service-body.md)
  
@@ -46,7 +46,7 @@
 []&lpar;provision-body.md)
 ```
 
-**Content:**
+**Markdown Output &#8595;&#8595;:**
  
 [](include:provision-body.md)
  

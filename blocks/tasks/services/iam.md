@@ -12,7 +12,7 @@
 []&lpar;compartment-create-body.md)
 ```
 
-**Content:**
+**Markdown Output &#8595;&#8595;:**
  
 [](include:compartment-create-body.md)
  

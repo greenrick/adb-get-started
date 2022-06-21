@@ -11,17 +11,17 @@
  "tutorials": [  
 
      {
-         "title": "Authoring using Blocks and Steps",
+         "title": "Authoring using Blocks and Tasks",
          "type": "freetier",
          "filename": "/blocks/how-to-author-with-blocks/how-to-author-with-blocks.md"
      },
      {
-         "title": "ADB steps",
+         "title": "ADB Tasks",
          "type": "freetier",
          "filename": "/blocks/tasks/services/adb.md"
      },
      {
-         "title": "IAM steps",
+         "title": "IAM Tasks",
          "type": "freetier",
          "filename": "/blocks/tasks/services/iam.md"
      }
