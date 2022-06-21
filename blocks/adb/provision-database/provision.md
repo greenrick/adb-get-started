@@ -8,12 +8,11 @@ Learn how to provision Autonomous Database
 
 -   This lab requires completion of the Get Started section in the Contents menu on the left.
 
-## Provision using the OCI Console
 
-### Choose Autonomous Database from the services menu
+## Task 1: Choose Autonomous Database from the services menu
 [](include:goto-service-body.md)
 
-### Create the Autonomous Database instance
+## Task 2: Create the Autonomous Database instance
 [](include:provision-console-body.md)
 
 Please *proceed to the next lab*.

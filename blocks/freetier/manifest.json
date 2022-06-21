@@ -1,12 +1,12 @@
 {
     "workshoptitle": "LiveLabs Building Blocks",
     "include": {
-      "provision-console-body.md":"/blocks/steps/adb/provision-body.md",
-      "sql-tools-worksheet-body.md":"/blocks/steps/adb/sql-tools-worksheet-body.md",
-      "compartment-create-body.md":"/blocks/steps/iam/compartment-create-body.md",
-      "provision-body.md":"/blocks/steps/adb/provision-body.md",
-      "goto-service-body.md":"/blocks/steps/adb/goto-service-body.md",
-      "connect-with-sql-worksheet-body.md":"/blocks/steps/adb/connect-with-sql-worksheet-body.md"   
+      "provision-console-body.md":"/blocks/tasks/adb/provision-body.md",
+      "sql-tools-worksheet-body.md":"/blocks/tasks/adb/sql-tools-worksheet-body.md",
+      "compartment-create-body.md":"/blocks/tasks/iam/compartment-create-body.md",
+      "provision-body.md":"/blocks/tasks/adb/provision-body.md",
+      "goto-service-body.md":"/blocks/tasks/adb/goto-service-body.md",
+      "connect-with-sql-worksheet-body.md":"/blocks/tasks/adb/connect-with-sql-worksheet-body.md"   
     },
     "variables": ["/blocks/variables/variables.json"],
     "help": "livelabs-help-db_us@oracle.com",
@@ -17,9 +17,10 @@
           "filename": "https://raw.githubusercontent.com/oracle/learning-library/master/common/labs/cloud-login/cloud-login.md"
         },      
         {
-          "title": "Provisioning ADB",
+          "title": "Provisioning ADB using the Console",
           "type": "freetier",      
-          "filename": "/blocks/adb/provision-database/provision.md"
+          "filename": "/blocks/adb/provision-database/provision.md",
+          "tocstyle":"color: blue;"
         },  
         {
           "title": "Connecting to ADB",

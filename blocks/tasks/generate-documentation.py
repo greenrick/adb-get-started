@@ -8,8 +8,8 @@ from datetime import date
 
 # Initialize
 path_area_start = os.path.dirname(os.path.realpath(__file__)) + "/"
-blocks_path = "blocks/steps"
-service_list_path = "blocks/steps/services"
+blocks_path = "blocks/tasks"
+service_list_path = "blocks/tasks/services"
 output = None
 files = sorted(filter( os.path.isfile, glob.glob(path_area_start + '**/*.md', recursive=True)))
 
@@ -59,7 +59,7 @@ write(' "variables": ["/blocks/variables/variables.json"],')
 write(' "tutorials": [  ')
 write('')
 write('     {')
-write('         "title": "Authoring using Blocks and Steps",' )
+write('         "title": "Authoring using Blocks and tasks",' )
 write('         "type": "freetier",' )
 write('         "filename": "/blocks/how-to-author-with-blocks/how-to-author-with-blocks.md"' )
 write('     },')
@@ -70,7 +70,7 @@ for c in services:
         current_area = c.area
         filename = "/" + service_list_path + "/" + c.area + ".md"
         write('     {')
-        write('         "title": "' + c.area.upper() + '",' )
+        write('         "title": "' + c.area.upper() + ' tasks",' )
         write('         "type": "freetier",' )
         write('         "filename": "' + filename + '"' )
         write('     },')

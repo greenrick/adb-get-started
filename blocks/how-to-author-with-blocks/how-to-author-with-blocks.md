@@ -80,8 +80,8 @@ The manifest.json file describes the content of your workshop. It also contains 
  {
     "workshoptitle": "LiveLabs Building Blocks",
     "include": {
-      "provision-body.md":"/blocks/steps/adb/provision-body.md",
-      "goto-service-body.md":"/blocks/steps/adb/goto-service-body.md"
+      "provision-body.md":"/blocks/tasks/adb/provision-body.md",
+      "goto-service-body.md":"/blocks/tasks/adb/goto-service-body.md"
     },
     "variables": ["/blocks/variables/variables.json"],
     "help": "livelabs-help-db_us@oracle.com",

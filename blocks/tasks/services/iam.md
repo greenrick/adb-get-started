@@ -3,7 +3,7 @@
 **Manifest:**
 ```
 "include": {
-     "compartment-create-body.md":"/blocks/steps/iam/compartment-create-body.md"
+     "compartment-create-body.md":"/blocks/tasks/iam/compartment-create-body.md"
 }
 ```
 

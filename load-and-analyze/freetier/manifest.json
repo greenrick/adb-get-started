@@ -2,10 +2,10 @@
     "workshoptitle": "Autonomous Database Quickstart Workshop",
     "include": {
         "adb-provision-console-body.md":"../../blocks/provision-database/adb-provision-console-body.md",
-        "sql-tools-worksheet-body.md":"../../blocks/steps/sql-tools-worksheet-body.md",
-        "create-compartment-body.md":"../../blocks/steps/create-compartment-body.md",
-        "create-adb-body.md":"../../blocks/steps/create-adb-body.md",
-        "goto-adb-service-body.md":"../../blocks/steps/goto-adb-service-body.md"
+        "sql-tools-worksheet-body.md":"../../blocks/tasks/sql-tools-worksheet-body.md",
+        "create-compartment-body.md":"../../blocks/tasks/create-compartment-body.md",
+        "create-adb-body.md":"../../blocks/tasks/create-adb-body.md",
+        "goto-adb-service-body.md":"../../blocks/tasks/goto-adb-service-body.md"
       },
     "help": "livelabs-help-db_us@oracle.com",
 	"tutorials": [
